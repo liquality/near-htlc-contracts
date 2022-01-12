@@ -34,7 +34,6 @@ export function claim(secret: Uint8Array): void {
       u256.fromUint8ArrayLE(swapInfo.secretHash),
     "INVALID_SECRET"
   );
-  assert(context.blockTimestamp <= swapInfo.expiration, "SWAP_EXPIRED");
   ContractPromiseBatch.create(context.contractName).delete_account(
     swapInfo.buyer
   );
